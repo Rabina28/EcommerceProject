@@ -30,10 +30,8 @@
                             <div class="form-select  col-md-6 mb-3">
                                 <label for="brand" class="control-label mb-1">Category</label>
                                 <select  class="form-control" name="category_id">
-                                    <option value="">Select a category</option>
-                                    @foreach($model as $item)
-                                        <option value="{{$item->id}}">{{$item->category_name}}</option>
-                                    @endforeach
+                                    <option value="">{{$model->categories->category_name}}</option>
+
                                 </select>
                             </div>
                             <div class="form-group col-md-12 mb-3 ">

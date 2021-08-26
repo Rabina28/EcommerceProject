@@ -43,6 +43,10 @@
                         <a href="{{url('admin/category')}}">
                             <i class="fas fa-list"></i>Category</a>
                     </li>
+                    <li class="nav-item active">
+                        <a href="{{url('admin/product')}}" class="mb-3">
+                            <i class="fab fa-product-hunt"></i>Product</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -69,7 +73,7 @@
 
                     <li class="nav-item active">
                         <a href="{{url('admin/product')}}" class="mb-3">
-                            <i class="fas fa-product"></i>Product</a>
+                            <i class="fab fa-product-hunt"></i>Product</a>
                     </li>
                 </ul>
             </nav>

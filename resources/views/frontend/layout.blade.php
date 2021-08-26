@@ -14,7 +14,10 @@
     <link rel="stylesheet" href="{{asset('frontend_assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('frontend_assets/css/responsive.css')}}">
     <link rel="icon" href="{{asset('frontend_assets/images/fevicon.png')}}" type="image/gif" />
-    <link rel="stylesheet" href="{{asset('frontend_assets/css/jquery.mCustomScrollbar.min.css')}}">
+
+    <link rel="stylesheet" href="{{asset('frontend_assets/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend_assets/css/owl.carousel.min.css')}}">
+
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 
@@ -32,9 +35,10 @@
                 <i class="fa fa-arrow-left"></i>
             </div>
             <ul class="list-unstyled components">
-                <li class="active"> <a href="/">Home</a></li>
+                <li class=""> <a href="/">Home</a></li>
                 <li> <a href="/">About</a></li>
                 <li> <a href="/">Product</a></li>
+                <li> <a href="{{url('category')}}">Category</a></li>
                 <li> <a href="/">Contact us</a></li>
             </ul>
         </nav>
@@ -107,6 +111,10 @@
 <div class="overlay"></div>
 
 <!-- Javascript files-->
+
+<script src="{{asset('frontend_assets/js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('frontend_assets/js/owl.carousel.min.js')}}"></script>
+
 <script src="{{asset('frontend_assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('frontend_assets/js/popper.min.js')}}"></script>
 <script src="{{asset('frontend_assets/js/bootstrap.bundle.min.js')}}"></script>
@@ -155,6 +163,7 @@
 <!-- google map js -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8eaHt9Dh5H57Zh0xVTqxVdBFCvFMqFjQ&callback=initMap"></script>
 <!-- end google map js -->
+@yield('scripts')
 
 </body>
 

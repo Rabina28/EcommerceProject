@@ -21,7 +21,11 @@ use App\Http\Controllers\Admin\ProductController;
     //return view('welcome');
 //});
 
+//  frontend routes
 Route::get('/',[FrontendController::class,'index']);
+Route::get('/category',[FrontendController::class,'category']);
+Route::get('/view-category/{{slug}}',[FrontendController::class,'viewcategory'])->name('frontend.products.index');
+
 
 //Admin dashboard routes
 Route::get('admin/dashboard',[AdminController::class,'dashboard']);
