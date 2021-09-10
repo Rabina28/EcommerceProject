@@ -1,4 +1,8 @@
 @extends('frontend.layout')
+@section('title')
+   Furniture Ecommerce
+@endsection
+
 @section('container')
     <section class="slider_section">
         <div class="banner_main">
@@ -67,14 +71,14 @@
                         <!--  <div class="item mt-3"> -->
                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                             <div class="brand-box">
-
-                                    <i><img src="{{asset('assets/uploads/product/'.$product->image)}}" class="image" alt="Product Images"/></i>
-                                    <h3>{{$product->product_name}}</h3>
-                                    <h5>{{$product->description}}</h5>
-                                    <h5>{{$product->price}}</h5>
-                                    <br>
-                                    <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>AddToCart</a>
-
+                                <a href="{{url('product/'.$product->Slug)}}">
+                                <i><img src="{{asset('assets/uploads/product/'.$product->image)}}" class="image" alt="Product Images"/></i>
+                                <h3>{{$product->product_name}}</h3>
+                                <h5>{{$product->description}}</h5>
+                                <h5>{{$product->price}}</h5>
+                                <br/>
+                                <a class="aa-add-card-btn" href="#"><span class="fa fa-shopping-cart"></span>AddToCart</a>
+                                 </a>
                             </div>
                         </div>
                     @endforeach

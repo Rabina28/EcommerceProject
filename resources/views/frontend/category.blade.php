@@ -1,6 +1,6 @@
 @extends('frontend.layout')
 @section('title')
-    Welcome to category page.
+    Category page.
 @endsection
 
 @section('container')
@@ -19,7 +19,7 @@
                         <a href="{{url('view-category/'.$cate->category_slug)}}">
                             <div class="trending-box">
                                 <figure><img src="{{asset('assets/uploads/category/'.$cate->category_image)}}" /></figure>
-                                <h3>{{$cate->name}}</h3>
+                                <h3>{{$cate->category_name}}</h3>
                             </div>
                         </a>
 

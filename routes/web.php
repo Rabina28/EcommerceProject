@@ -3,9 +3,14 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\OrderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,7 +29,26 @@ use App\Http\Controllers\Admin\ProductController;
 //  frontend routes
 Route::get('/',[FrontendController::class,'index']);
 Route::get('/category',[FrontendController::class,'category']);
-Route::get('/view-category/{{slug}}',[FrontendController::class,'viewcategory'])->name('frontend.products.index');
+Route::get('view-category/{slug}',[FrontendController::class,'viewcategory'])->name('frontend.products.index');
+Route::get('/product',[FrontendController::class,'product']);
+Route::get('product/{prod_slug}',[FrontendController::class,'productview']);
+Route::post('add-to-cart',[CartController::class,'addProduct']);
+Route::post('delete-cart-item',[CartController::class,'deleteproduct']);
+Route::post('update-cart',[CartController::class,'updatecart']);
+
+
+Route::middleware(['auth'])->group(function (){
+    Route::get('cart',[CartController::class,'viewcart']);
+    Route::get('checkout',[CheckoutController::class,'index']);
+    Route::post('place-order',[CheckoutController::class,'placeorder']);
+    Route::get('my-order',[UserController::class,'index']);
+    Route::get('view-order/{id}',[UserController::class,'view']);
+
+
+});
+
+Route::get('/contactus',[FrontendController::class,'contactus'])->name('frontend.contact');
+Route::post('/contactus',[FrontendController::class,'contactstore'])->name('frontend.contact.contactstore');
 
 
 //Admin dashboard routes
@@ -48,6 +72,19 @@ Route::put('admin/product/update/{id}',[ProductController::class,'update'])->nam
 Route::delete('/admin/product/destroy/{id}',[ProductController::class,'destroy'])->name('admin.product.destroy');
 Route::get('/admin/product/status/{status}/{id}',[ProductController::class,'status']);
 
+//Admin Contact Routes
+Route::get('/admin/contact/', [ContactController::class,'index'])->name('admin.contact.index');
+Route::get('admin/contact/create',[ContactController::class,'create'])->name('admin.contact.create');
+Route::put('admin/contact/create',[ContactController::class,'store'])->name('admin.contact.store');
+Route::get('admin/contact/edit/{id}',[ContactController::class,'edit'])->name('admin.contact.edit');
+Route::put('admin/contact/update/{id}',[ContactController::class,'update'])->name('admin.contact.update');
+Route::delete('/admin/contact/destroy/{id}',[ContactController::class,'destroy'])->name('admin.contact.destroy');
+
+//Admin Orders route
+Route::get('orders', [OrderController::class,'index']);
+Route::get('view-order/{id}', [OrderController::class,'view']);
+Route::put('update-order/{id}', [OrderController::class,'updateorder']);
+Route::get('/order-history', [OrderController::class,'orderhistory']);
 
 
 

@@ -6,7 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <title>Ecommerce</title>
+    <!-- CSRF Token -->
+    <!--<meta name="csrf-token" content="{{ csrf_token() }}"> -->
+    <title>
+        @yield('title')
+    </title>
     <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -18,7 +22,9 @@
     <link rel="stylesheet" href="{{asset('frontend_assets/css/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend_assets/css/owl.carousel.min.css')}}">
 
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -36,10 +42,10 @@
             </div>
             <ul class="list-unstyled components">
                 <li class=""> <a href="/">Home</a></li>
-                <li> <a href="/">About</a></li>
-                <li> <a href="/">Product</a></li>
+                <li> <a href="{{url('product')}}">Product</a></li>
                 <li> <a href="{{url('category')}}">Category</a></li>
-                <li> <a href="/">Contact us</a></li>
+                <li> <a href="{{url('contactus')}}">Contact us</a></li>
+                <li> <a href="{{url('my-order')}}">My orders</a></li>
             </ul>
         </nav>
     </div>
@@ -52,7 +58,17 @@
                             <div class="full">
                                 <div class="center-desk">
                                     <div class="logo">
-                                        <a href="/"><h1>Furniture</h1></a>
+                                        <ul>
+                                            <li>
+                                                <a href="/"><h1>Furniture</h1></a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="md-3">
+                                        <ul>
+                                            <li> <a href="{{url('cart')}}"><h2>Cart</h2></a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +114,7 @@
                     </div>
                 </div>
                 <div class="copyright">
-                    <p>Copyright 2019 All Right Reserved By <a href="https://html.design/">the Furniture.com</a></p>
+                    <p>Copyright 2019 All Right Reserved By <a href="/">the Furniture.com</a></p>
                 </div>
             </div>
 
@@ -121,6 +137,8 @@
 <script src="{{asset('frontend_assets/js/jquery-3.0.0.min.js')}}"></script>
 <script src="{{asset('frontend_assets/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
 <script src="{{asset('frontend_assets/js/custom.js')}}"></script>
+<script src="{{asset('frontend_assets/js/customs.js')}}"></script>
+
 <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {

@@ -60,6 +60,7 @@ class ProductController extends Controller
         }
         $model->category_id=$request->category_id;
         $model->product_name=$request->product_name;
+        $model->slug=$request->slug;
         $model->brand=$request->brand;
         $model->quantity=$request->quantity;
         $model->description=$request->description;
@@ -122,6 +123,7 @@ class ProductController extends Controller
             $model->image=$filename;
         }
         $model->product_name=$request->product_name;
+        $model->slug=$request->slug;
         $model->brand=$request->brand;
         $model->quantity=$request->quantity;
         $model->description=$request->description;
@@ -149,7 +151,7 @@ class ProductController extends Controller
         $model = Product::find($id);
         $model->status=$status;
         $model->save();
-        return back()->with('message','category status updated successfully');
+        return back()->with('message','Product status updated successfully');
 
     }
 }

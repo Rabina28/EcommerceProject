@@ -22,8 +22,8 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
       $this->validate($request,[
-          'category_name'=>'required',
-          'category_slug'=>'required|unique:categories',
+          'category_name' => 'required',
+          'category_slug' => 'required|unique:categories,category_slug',
       ]);
       $model=new Category();
         if ($request->hasFile('category_image'))

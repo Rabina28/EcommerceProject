@@ -19,20 +19,19 @@
             <table class="table table-borderless table-data3">
                 <thead>
                 <tr>
-                    <th>ID</th>
+                    <th>S.N</th>
                     <th>Category</th>
                     <th>Product Name</th>
                     <th>Image</th>
                     <th>Description</th>
                     <th>Price</th>
-
                     <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($data as $list)
                     <tr>
-                        <td>{{$list->id}}</td>
+                        <td>{{ $loop->index+1 }}</td>
                         <td>{{$list->categories->category_name}}</td>
                         <td>{{$list->product_name}}</td>
                         <td>

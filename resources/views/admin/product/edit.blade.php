@@ -9,7 +9,7 @@
             </button>
         </div>
     @endif
-    <h1 class="mb10">Create New Category</h1>
+    <h1 class="mb10">Edit Product</h1>
     <a href="{{url('admin/product')}}">
         <button type="button" class="btn btn-success">Back</button>
 
@@ -25,7 +25,15 @@
                             <div class="form-group col-md-12 mb-3">
                                 <label for="product_name" class="control-label mb-1">Product Name</label>
                                 <input id="product_name" value="{{$model->product_name}}" name="product_name" type="text" class="form-control" aria-required="true" aria-invalid="false" required>
-
+                            </div>
+                            <div class="form-group col-md-12 mb-3">
+                                <label for="slug" class="control-label mb-1"> Slug</label>
+                                <input id="slug" value="{{ $model->slug}}"  name="slug" type="text" class="form-control" aria-required="true" aria-invalid="false" required>
+                                @error('slug')
+                                <div class="alert alert-danger" role="alert">
+                                    {{$message}}
+                                </div>
+                                @enderror
                             </div>
                             <div class="form-select  col-md-6 mb-3">
                                 <label for="brand" class="control-label mb-1">Category</label>

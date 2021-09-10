@@ -47,6 +47,18 @@
                         <a href="{{url('admin/product')}}" class="mb-3">
                             <i class="fab fa-product-hunt"></i>Product</a>
                     </li>
+                    <li class="nav-item active">
+                        <a href="{{url('admin/contact')}}" class="mb-3">
+                            <i class="fas fa-envelope"></i>Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{url('orders')}}" class="mb-3">
+                            <i class="fas fa-shopping-cart"></i>Orders</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="{{url('users')}}" class="mb-3">
+                            <i class="fas fa-user"></i>Users</a>
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -74,6 +86,18 @@
                     <li class="nav-item active">
                         <a href="{{url('admin/product')}}" class="mb-3">
                             <i class="fab fa-product-hunt"></i>Product</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="{{url('admin/contact')}}" class="mb-3">
+                            <i class="fas fa-envelope"></i>Contact</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="{{url('orders')}}" class="mb-3">
+                            <i class="fas fa-shopping-cart"></i>Orders</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="{{url('users')}}" class="mb-3">
+                            <i class="fas fa-user"></i>Users</a>
                     </li>
                 </ul>
             </nav>

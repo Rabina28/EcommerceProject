@@ -18,13 +18,13 @@
     <div class="container-fluid">
         <div class="brand-bg">
             <div class="row">
-                @foreach($products as $product)
+                @foreach($products as $prod)
                     <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 margintop">
                         <div class="brand-box">
-                            <i><img src="{{asset('assets/uploads/product/'.$product->image)}}" class="image" alt="Product Images"/></i>
-                            <h3>{{$product->product_name}}</h3>
-                            <h5>{{$product->description}}</h5>
-                            <h5>{{$product->price}}</h5>
+                            <i><img src="{{asset('assets/uploads/product/'.$prod->image)}}"  alt="Product Images"/></i>
+                            <h3>{{$prod->product_name}}</h3>
+                            <h5>{{$prod->description}}</h5>
+                            <h5>{{$prod->price}}</h5>
                         </div>
                     </div>
 
