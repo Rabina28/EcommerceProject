@@ -46,6 +46,7 @@
                 <li> <a href="{{url('category')}}">Category</a></li>
                 <li> <a href="{{url('contactus')}}">Contact us</a></li>
                 <li> <a href="{{url('my-order')}}">My orders</a></li>
+                <li> <a href="{{url('wishlist')}}">Wishlist</a></li>
             </ul>
         </nav>
     </div>

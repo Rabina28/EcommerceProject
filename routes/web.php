@@ -6,11 +6,13 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WishlistController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\DashboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,14 +38,17 @@ Route::post('add-to-cart',[CartController::class,'addProduct']);
 Route::post('delete-cart-item',[CartController::class,'deleteproduct']);
 Route::post('update-cart',[CartController::class,'updatecart']);
 
+Route::post('/add-to-wishlist',[WishlistController::class,'add']);
+Route::post('delete-wishlist-item',[WishlistController::class,'deleteitem']);
 
 Route::middleware(['auth'])->group(function (){
     Route::get('cart',[CartController::class,'viewcart']);
     Route::get('checkout',[CheckoutController::class,'index']);
     Route::post('place-order',[CheckoutController::class,'placeorder']);
     Route::get('my-order',[UserController::class,'index']);
-    Route::get('view-order/{id}',[UserController::class,'view']);
+    Route::get('view/{id}',[UserController::class,'view']);
 
+    Route::get('wishlist',[WishlistController::class,'index']);
 
 });
 
@@ -86,6 +91,9 @@ Route::get('view-order/{id}', [OrderController::class,'view']);
 Route::put('update-order/{id}', [OrderController::class,'updateorder']);
 Route::get('/order-history', [OrderController::class,'orderhistory']);
 
+//Admin Users route
+Route::get('users', [DashboardController::class,'users']);
+Route::get('view-user/{id}', [DashboardController::class,'viewuser']);
 
 
 Auth::routes();
