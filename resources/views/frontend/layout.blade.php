@@ -15,6 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="{{asset('frontend_assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('frontend_assets/css/custom.css')}}">
     <link rel="stylesheet" href="{{asset('frontend_assets/css/style.css')}}">
     <link rel="stylesheet" href="{{asset('frontend_assets/css/responsive.css')}}">
     <link rel="icon" href="{{asset('frontend_assets/images/fevicon.png')}}" type="image/gif" />
@@ -34,6 +35,49 @@
 <div class="loader_bg">
     <div class="loader"><img src="{{asset('frontend_assets/images/loading.gif')}}" alt="#" /></div>
 </div>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .rate {
+        float: left;
+        height: 46px;
+        padding: 0 10px;
+    }
+    .rate:not(:checked) > input {
+        position:absolute;
+        top:-9999px;
+    }
+    .rate:not(:checked) > label {
+        float:right;
+        width:1em;
+        overflow:hidden;
+        white-space:nowrap;
+        cursor:pointer;
+        font-size:30px;
+        color:#ccc;
+    }
+    .rate:not(:checked) > label:before {
+        content: '★ ';
+    }
+    .rate > input:checked ~ label {
+        color: #ffc700;
+    }
+    .rate:not(:checked) > label:hover,
+    .rate:not(:checked) > label:hover ~ label {
+        color: #deb217;
+    }
+    .rate > input:checked + label:hover,
+    .rate > input:checked + label:hover ~ label,
+    .rate > input:checked ~ label:hover,
+    .rate > input:checked ~ label:hover ~ label,
+    .rate > label:hover ~ input:checked ~ label {
+        color: #c59b08;
+    }
+
+</style>
+
 <div class="wrapper">
     <div class="sidebar">
         <nav id="sidebar">
@@ -46,7 +90,16 @@
                 <li> <a href="{{url('category')}}">Category</a></li>
                 <li> <a href="{{url('contactus')}}">Contact us</a></li>
                 <li> <a href="{{url('my-order')}}">My orders</a></li>
-                <li> <a href="{{url('wishlist')}}">Wishlist</a></li>
+                <li>
+                    <a href="{{url('cart')}}">Cart
+                         <span class="badge badge-pill bg-success cart-count">0</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url('wishlist')}}">Wishlist
+                        <span class="badge badge-pill bg-primary wishlist-count">0</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
@@ -65,11 +118,6 @@
                                             </li>
                                         </ul>
 
-                                    </div>
-                                    <div class="md-3">
-                                        <ul>
-                                            <li> <a href="{{url('cart')}}"><h2>Cart</h2></a></li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>

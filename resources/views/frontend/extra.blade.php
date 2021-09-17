@@ -65,9 +65,9 @@
                                     <div class="col-md-6 ">
                                         <h4>Write a review</h4>
                                         <hr>
-                                        <form method="POST" action="{{url('/add-rating')}}"  >
+                                        <form method="POST" action="{{url('add-rating')}}" name="ratingForm" id="ratingForm">
                                             @csrf
-                                            <input type="hidden" name="product_id" value="{{$products->id}}">
+                                            <input type="hidden" name="product_id" value="">
                                             <div class="rate">
                                                 <input type="radio" id="star5" name="product_rating" value="5" />
                                                 <label for="star5" title="text">5 stars</label>
@@ -80,15 +80,13 @@
                                                 <input type="radio" id="star1" name="product_rating" value="1" />
                                                 <label for="star1" title="text">1 star</label>
                                             </div>
-                                            <br>
-                                            <br>
                                             <div class="form-group">
-                                                <label>Your Review </label>
+                                                <label>Your Review</label>
                                                 <textarea name="review" style="width: 300px; height: 50px;"></textarea>
                                             </div>
                                             <div>&nbsp;</div>
                                             <div class="form-group">
-                                                <input  class="btn btn-primary" type="submit" name="Submit">
+                                                <input type="submit" name="Submit">
                                             </div>
                                         </form>
                                     </div>

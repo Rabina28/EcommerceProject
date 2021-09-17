@@ -7,6 +7,7 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WishlistController;
+use App\Http\Controllers\RatingsController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
@@ -34,12 +35,13 @@ Route::get('/category',[FrontendController::class,'category']);
 Route::get('view-category/{slug}',[FrontendController::class,'viewcategory'])->name('frontend.products.index');
 Route::get('/product',[FrontendController::class,'product']);
 Route::get('product/{prod_slug}',[FrontendController::class,'productview']);
-Route::post('add-to-cart',[CartController::class,'addProduct']);
+Route::post('/add-to-cart',[CartController::class,'addProduct']);
 Route::post('delete-cart-item',[CartController::class,'deleteproduct']);
 Route::post('update-cart',[CartController::class,'updatecart']);
 
 Route::post('/add-to-wishlist',[WishlistController::class,'add']);
 Route::post('delete-wishlist-item',[WishlistController::class,'deleteitem']);
+
 
 Route::middleware(['auth'])->group(function (){
     Route::get('cart',[CartController::class,'viewcart']);
@@ -49,6 +51,7 @@ Route::middleware(['auth'])->group(function (){
     Route::get('view/{id}',[UserController::class,'view']);
 
     Route::get('wishlist',[WishlistController::class,'index']);
+    Route::match(['GET','POST'],'/add-rating',[RatingsController::class,'addRating']);
 
 });
 
